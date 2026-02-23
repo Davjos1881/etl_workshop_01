@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\btigr\Documents\UAO\5\ETL\ETL_2026_1\workshop_1\etl_workshop_01\.etl
+set VIRTUAL_ENV=C:\Users\santa\Desktop\ETL_cositas\workshop_01\.etl
 
 if not defined PROMPT set PROMPT=$P$G
 
