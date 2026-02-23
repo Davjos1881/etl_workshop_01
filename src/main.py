@@ -5,9 +5,9 @@ from extract import extract_candidates
 from transform import transform_data
 from load import save_dimensions_to_csv, load_to_dw
 
-log_file = r'C:\Users\btigr\Documents\UAO\5\ETL\ETL_2026_1\workshop_1\etl_workshop_01\logs\log_file.txt'
-target_file = r'C:\Users\btigr\Documents\UAO\5\ETL\ETL_2026_1\workshop_1\etl_workshop_01\transformed'
-data_path = r'C:\Users\btigr\Documents\UAO\5\ETL\ETL_2026_1\workshop_1\etl_workshop_01\raw\candidates.csv'
+log_file = r'C:\Users\santa\Desktop\ETL_cositas\workshop_01\logs\log_file.txt'
+target_file = r'C:\Users\santa\Desktop\ETL_cositas\workshop_01\transformed'
+data_path = r'C:\Users\santa\Desktop\ETL_cositas\workshop_01\raw\candidates.csv'
 
 def main():
     # ETL process
