@@ -91,4 +91,4 @@ def load_to_dw(dataframes):
     else:
         print("no new rows for fact_application")
 
-    print("Load to Data Warehouse has been completed successfull")
+    print("Load to Data Warehouse has been completed successfully")
