@@ -159,9 +159,7 @@ This repository already contains a prebuilt Power BI report. Follow the steps be
 
 workshop_01/diagrams/power_bi_kpis/recruitment_kpi_visualization.pbix
 
-9.2 Open it with Power BI
-
-10. Update Data Source Credentials
+9.2 Open it with Power BI and update Data Source Credentials
 
 1. In Power BI go to: Home → Transform Data → Data Source Settings
 
