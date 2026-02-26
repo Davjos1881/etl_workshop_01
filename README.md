@@ -79,7 +79,9 @@ Multiple executions must not create duplicate analytical rows. This is achieved 
 
 **6. How to run the project**
 
-Prerequisites
+Prerequisites:
+
+**Warning This project is supposed to be runned on Windows, Mac/Linux alternatives are unknown**
 
 Python 3.10+ and a virtual environment (optional).
 
@@ -89,6 +91,102 @@ Required Python packages: listed in requirements.txt (install via pip install -r
 
 MySQL Workbench for schema and view validation.
 
-MySQL Connector/ODBC (version 8.x/64bit)
+MySQL Connector/ODBC (version 8.x/64bit).
 
 Power BI Desktop for visualization (64bit).
+
+Run steps:
+
+1. Create and activate a virtual environment (optional)
+
+        python -m venv .etl
+        .etl\Scripts\activate
+
+2. Install dependencies:
+
+        pip install -r requirements.txt
+   
+3. Ensure the target database recruitment_dw exists and run the provided DDL file (recruitment_dw.sql) in MySQL Workbench if needed.
+
+4. Execute the ETL pipeline
+
+5. Verify counts in MySQL Workbench:
+
+        SELECT COUNT(*) FROM recruitment_dw.dim_date;
+        SELECT COUNT(*) FROM recruitment_dw.dim_candidate;
+        SELECT COUNT(*) FROM recruitment_dw.fact_application;
+
+5.1 Example Outputs:
+
+
+6. Connecting MySQL Workbench to Power BI (ODBC)
+        
+This project consumes the Data Warehouse from Power BI through an ODBC Data Source Name (DSN) configured with the MySQL ODBC driver.
+
+7. Creating the ODBC DNS
+
+1. Open ODBC Data Sources (64-bit) in Windows.
+
+2. Go to the System DSN tab (recommended for multi-user machines).
+
+3. Click Add…
+
+4. Select MySQL ODBC 8.0 Unicode Driver.
+
+5. Configure the DSN with the following fields:
+
+   Data Source Name: recruitment_dw_dns
+
+  TCP/IP Server: localhost
+
+  Port: 3306
+
+  User: <your_MySQL_Workbench_user>
+
+  Password: <your_password>
+
+  Database: recruitment_dw
+
+7. Click Test to verify connectivity.
+
+8. Click OK to save the DNS.
+
+9. Using the Included Power BI Report (.pbix)
+
+This repository already contains a prebuilt Power BI report. Follow the steps below to connect it to your local Data Warehouse after cloning the project.
+
+9.1 Locate the file
+
+workshop_01/diagrams/power_bi_kpis/recruitment_kpi_visualization.pbix
+
+9.2 Open it with Power BI
+
+10. Update Data Source Credentials
+
+1. In Power BI go to: Home → Transform Data → Data Source Settings
+
+2. Select the ODBC source.
+
+3. Click Edit Permissions.
+
+4. Enter your MySQL credentials if prompted.
+
+5. Confirm that the DSN used is: recruitment_dw_dns
+
+6.Refresh the dataset: Home → Refresh
+
+  After refreshing, the report should display KPIs including:
+  
+  Hires by Technology
+  
+  Hires by Year
+  
+  Hires by Seniority
+  
+  Hires by Country over Years
+  
+  Hire Rate (%)
+  
+  Average Scores
+  
+  Values should match the contents of the recruitment_dw database.
