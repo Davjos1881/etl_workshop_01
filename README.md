@@ -110,7 +110,7 @@ Run steps:
 
 4. Execute the ETL pipeline
 
-5. Verify counts in MySQL Workbench:
+5. Verify counts in MySQL Workbench. Example:
 
         SELECT COUNT(*) FROM recruitment_dw.dim_date;
         SELECT COUNT(*) FROM recruitment_dw.dim_candidate;
@@ -118,6 +118,33 @@ Run steps:
 
 5.1 Example Outputs:
 
+Fact table: fact_application
+
+<img width="1149" height="439" alt="image" src="https://github.com/user-attachments/assets/4d1fefe0-8b41-4615-9f50-fbc49486271c" />
+
+dimension: dim_candidate
+
+<img width="787" height="439" alt="image" src="https://github.com/user-attachments/assets/ff69eb0e-72de-4274-bb9f-0e1e4a449fdc" />
+
+dimension: dim_date
+
+<img width="555" height="443" alt="image" src="https://github.com/user-attachments/assets/2216ecef-5673-48b1-8a48-89b9a347f99b" />
+
+Some examples for the views in the recruitment_dw.sql file:
+
+        SELECT * FROM recruitment_dw.hires_by_year_country_vw;
+
+<img width="720" height="440" alt="image" src="https://github.com/user-attachments/assets/0f4f1eaf-3cfa-4710-ba30-3e7e0c375171" />
+
+        SELECT * FROM recruitment_dw.hire_rate;
+
+<img width="733" height="305" alt="image" src="https://github.com/user-attachments/assets/bc1fd1a7-3ef7-4e00-a93b-e6f55f63e66d" />
+
+        SELECT * FROM recruitment_dw.hires_by_technology_vw;
+
+<img width="734" height="434" alt="image" src="https://github.com/user-attachments/assets/e4a6c16d-3b28-4dcd-a9c7-2abbdf2c3d6f" />
+
+These are 3 of 6 total views included in the recruitment_dw.sql file
 
 6. Connecting MySQL Workbench to Power BI (ODBC)
         
@@ -181,10 +208,13 @@ workshop_01/diagrams/power_bi_kpis/recruitment_kpi_visualization.pbix
   
   Hires by Seniority
   
-  Hires by Country over Years
+  Hires by Country over Years (One of the requirements to this KPI is that it should be focused on USA, Brazil, Colombia and Ecuador. You may use the right sidebar, click on the line graph of the dashboard, then use the Filter section and on the search bar of "country" write and select the countries you want to analize, you may select more than one if you want to see the behavior of this KPI over the years)
   
   Hire Rate (%)
-  
+
   Average Scores
-  
-  Values should match the contents of the recruitment_dw database.
+
+You should be able to the Power Bi report and the values should match the contents of the recruitment_dw database. Here is an image of how it should look:
+
+<img width="1432" height="810" alt="image" src="https://github.com/user-attachments/assets/4480692c-29b4-4bbf-987a-61f9cf2ce222" />
+
